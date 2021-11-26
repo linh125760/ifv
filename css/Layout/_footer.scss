@@ -1,0 +1,151 @@
+.contact {
+  background: $color-contact;
+  padding: 5rem 0 4rem 0;
+  color: $color-white;
+  font-size: 1.4rem;
+  &__area {
+    @include flexbox;
+
+    &--form {
+      width: 50%;
+    }
+
+    &--info {
+      width: 50%;
+      @include flexCenter;
+      transform: translateY(-4rem);
+      .info-logo {
+        width: 25%;
+        padding: 0 2.5rem;
+      }
+      .info-company {
+        width: 75%;
+        text-transform: uppercase;
+        padding: 0 2.5rem;
+        p:first-child {
+          margin-bottom: 3.5rem;
+        }
+      }
+    }
+
+    @include respond(spScr) {
+      display: block;
+      .contact__area--form,
+      .contact__area--info {
+        width: 100%;
+      }
+      .contact__area--info {
+        display: block;
+        transform: translateY(0);
+        .info-logo {
+          width: 100%;
+          text-align: center;
+          margin: 1rem 0;
+        }
+        .info-company {
+          padding: 0;
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.copy-right {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: $color-white;
+  background: $color-primary;
+  position: relative;
+  .back-top {
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    background-color: $color-primary;
+    position: absolute;
+    top: -7rem;
+    right: 0;
+    .center {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  @include respond(mdScr) {
+    .back-top {
+      width: 3.5rem;
+      height: 3.5rem;
+      top: -3.5rem;
+      .center {
+        top: 60%;
+      }
+    }
+  }
+}
+
+.form-group {
+  @include flexCenter;
+  padding: 0.75rem 0;
+
+  .col-label {
+    width: 30%;
+    padding-left: 2rem;
+  }
+  .col-flex {
+    @include flexCenter;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .col-input {
+    width: 70%;
+    input,
+    textarea {
+      min-height: 3.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+      padding: 0.5rem 1rem;
+      width: 37rem;
+      @include respond(mdScr) {
+        min-height: 2.1rem;
+      }
+    }
+    .input-100 {
+      width: 100%;
+    }
+    .input-50 {
+      max-width: 15rem;
+      @include respond(ipad-pro) {
+        width: 50%;
+      }
+    }
+  }
+
+  @include respond(mdScr) {
+    display: block;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    .col-label {
+      padding-left: 0;
+      margin-bottom: 0.5rem;
+      width: 100%;
+    }
+
+    .col-input {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.form-textarea {
+  @include flexbox;
+  align-items: stretch;
+  @include respond(mdScr) {
+    display: block;
+  }
+}

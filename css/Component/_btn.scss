@@ -1,0 +1,114 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  height: 4rem;
+  text-decoration: none;
+  color: $color-white;
+  font-weight: normal;
+  width: 18rem;
+  padding: 0.8rem 0rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  position: relative;
+  border: 1px solid $color-white;
+  @include respond(mdScr) {
+    height: 2rem;
+    width: 9rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0;
+    &::before {
+      width: 2.5px !important;
+      height: 2.5px !important;
+      border-top: 2.5px solid $color-white !important;
+      border-left: 2.5px solid $color-white !important;
+    }
+    &::after {
+      width: 2.5px !important;
+      height: 2.5px !important;
+      border-bottom: 2.5px solid $color-white !important;
+      border-left: 2.5px solid $color-white !important;
+    }
+    &-outline {
+      &::before {
+        width: 2.5px !important;
+        height: 2.5px !important;
+        border-bottom: 2.5px solid $color-white !important;
+        border-right: 2.5px solid $color-white !important;
+      }
+      &::after {
+        width: 2.5px !important;
+        height: 2.5px !important;
+        border-top: 2.5px solid $color-white !important;
+        border-right: 2.5px solid $color-white !important;
+      }
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: -1px;
+    width: 7px;
+    height: 7px;
+    border-top: 3px solid $color-white;
+    border-left: 3px solid $color-white;
+  }
+  &:hover::before {
+    width: 7px;
+    height: calc(100% - 3px);
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -1px;
+    left: -1px;
+    width: 7px;
+    height: 7px;
+    border-bottom: 3px solid $color-white;
+    border-left: 3px solid $color-white;
+  }
+  &:hover::after {
+    height: 7px;
+    width: calc(100% - 3px);
+    transition: 0.45s linear 0.45s;
+    -webkit-transition: 0.45s linear 0.45s;
+    -o-transition: 0.45s linear 0.45s;
+  }
+  &-outline {
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -1px;
+      right: -1px;
+      width: 7px;
+      height: 7px;
+      border-bottom: 3px solid $color-white;
+      border-right: 3px solid $color-white;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      top: -1px;
+      right: -1px;
+      width: 7px;
+      height: 7px;
+      border-top: 3px solid $color-white;
+      border-right: 3px solid $color-white;
+    }
+  }
+  &:hover &-outline::before {
+    width: 7px;
+    height: calc(100% - 3px);
+    transition: 0.25s linear;
+  }
+  &:hover &-outline::after {
+    height: 7px;
+    width: calc(100% - 3px);
+    transition: 0.45s linear 0.45s;
+  }
+}

@@ -1,0 +1,300 @@
+.header {
+  @include flexbox;
+  flex-direction: column;
+  @include respond(mdScr) {
+    flex-direction: column-reverse;
+  }
+  &__banner {
+    position: relative;
+    height: 87vh;
+    @include respond(mdScr) {
+      height: 25vh;
+    }
+    @include respond(spScr) {
+      height: 19rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba($color: #000000, $alpha: 0.3);
+    }
+    img {
+      width: 100%;
+      height: 87vh;
+      object-fit: cover;
+      overflow: hidden;
+      position: absolute;
+      transition: opacity 1s ease-in;
+      @include respond(mdScr) {
+        height: 25vh;
+      }
+      @include respond(spScr) {
+        height: 19rem;
+      }
+    }
+    img + img {
+      opacity: 0;
+    }
+    &--text {
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      color: $color-white;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      .text-first {
+        font-size: 4.8rem;
+        margin-bottom: 4.8rem;
+        transition: 4s;
+        animation: fadeIn 4s;
+        @include respond(mdScr) {
+          transition: 1s;
+          animation: fadeIn 1s;
+          margin-bottom: 2rem;
+        }
+      }
+      .text-second {
+        font-size: 2.4rem;
+        transition: 8s;
+        animation: fadeIn 8s;
+        @include respond(mdScr) {
+          transition: 2s;
+          animation: fadeIn 2s;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  #myHeader {
+    top: 0;
+    position: relative;
+    width: 100%;
+    transition: all 0.5s linear;
+    z-index: 1;
+    background-color: $color-white;
+    @include respond(mdScr) {
+      position: fixed;
+      top: 0;
+      border: none;
+      background: white;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      z-index: 5;
+    }
+  }
+
+  &__nav {
+    @include flexbox;
+    height: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid $color-border;
+    &--menu {
+      transform: translateX(-0.6rem);
+      ul {
+        list-style: none;
+        @include flexbox;
+      }
+      li {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        a {
+          display: block;
+          position: relative;
+          padding: 1.6rem 1.8rem;
+          color: $color-primary;
+          position: relative;
+          @include respond(ipad-pro) {
+            padding: 1.6rem 0.8rem;
+          }
+          &::after {
+            position: absolute;
+            content: "";
+            transform: skew(-30deg);
+            inset: 0;
+            width: 100%;
+            height: 100%;
+          }
+          span {
+            display: block;
+            font-size: 1.4rem;
+            color: $color-gray;
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: skew(-30deg);
+          width: 100%;
+          height: calc(100% + 1px);
+          z-index: -5;
+          border-left: 1px solid $color-border;
+        }
+        &:last-child::before {
+          border-right: 1px solid $color-border;
+        }
+
+        &:hover::before {
+          background-color: $color-primary;
+          transition: 0.5s ease-in-out;
+        }
+        &:hover a {
+          color: $color-white;
+          span {
+            color: $color-white;
+            transition: 0.5s ease-in-out;
+          }
+          transition: 0.5s ease-in-out;
+        }
+      }
+      // Mobile
+      @include respond(mdScr) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 1s;
+        transform: translate(200%);
+        ul {
+          background: rgba(255, 255, 255, 0.95);
+          width: 100vw;
+          height: 100vh;
+          margin: 0;
+          padding: 2rem 0;
+          display: block;
+        }
+        li {
+          &:not(:last-child) {
+            border-bottom: 1px solid $color-border;
+          }
+          a {
+            &::after {
+              position: static;
+            }
+            &:hover {
+              color: $color-primary;
+              span {
+                color: $color-gray;
+              }
+            }
+          }
+          &::before {
+            position: static;
+            border: none;
+          }
+          &:last-child::before {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  @include respond(mdScr) {
+    .header__nav {
+      height: 4rem;
+      &--logo {
+        img {
+          width: 50%;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .header__banner--text {
+      transform: translateY(-50%);
+      top: 50%;
+      color: $color-white;
+      left: 0;
+      .text-first {
+        font-size: 1.6rem;
+      }
+      .text-second {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .navigation__checkbox:checked ~ .header__nav--menu {
+      transform: translate(0);
+    }
+  }
+}
+.fixed-nav #myHeader {
+  position: fixed;
+  z-index: 5;
+}
+
+.navigation {
+  &__button {
+    position: absolute;
+    top: -1.3rem;
+    right: 1rem;
+    z-index: 2000;
+    cursor: pointer;
+    text-align: center;
+    display: none;
+    @include respond(mdScr) {
+      display: block;
+    }
+  }
+  &__icon {
+    position: relative;
+    margin-top: 3.2rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 2.5rem;
+      height: 0.2rem;
+      background-color: $color-primary;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.5rem;
+    }
+
+    &::after {
+      top: 0.5rem;
+      height: 0.15rem;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    height: 0.15rem;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+    height: 0.15rem;
+  }
+}

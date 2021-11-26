@@ -1,0 +1,21 @@
+.arrow {
+    border: solid $color-white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    &-down {
+        padding: 1.3rem;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        @include respond(mdScr) {
+            padding: 0.8rem;
+        }
+    }
+    &-up {
+        padding: 1rem;
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        @include respond(mdScr) {
+            padding: 0.5rem;
+        }
+    }
+}

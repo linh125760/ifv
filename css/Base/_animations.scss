@@ -1,0 +1,64 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes topRight {
+    0% {
+        width: 0;
+        height: 0;
+        border-top-color: transparent;
+        border-right-color: $color-white;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    50% {
+        width: 0;
+        height: calc(100% - 0.6rem);
+        border-top-color: $color-white;
+        border-right-color: $color-white;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    100% {
+        width: calc(100% - 0.3rem);
+        height: calc(100% - 0.6rem);
+        border-top-color: $color-white;
+        border-right-color: $color-white;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+}
+
+@keyframes leftBottom {
+    0% {
+        width: 0;
+        height: 0;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: $color-white;
+    }
+    50% {
+        width: 0;
+        height: calc(100% - 0.5rem);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: $color-white;
+        border-left-color: $color-white;
+    }
+    100% {
+        width: calc(100% - 0.6rem);
+        height: calc(100% - 0.5rem);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: $color-white;
+        border-left-color: $color-white;
+    }
+}

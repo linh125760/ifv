@@ -1,0 +1,231 @@
+.service {
+  background-color: $color-service;
+  padding: 6rem 0 8rem 0;
+  @include respond(mdScr) {
+    padding: 3.75rem 0 2.5rem 0;
+    img {
+      width: 22%;
+    }
+  }
+  &__text {
+    &--title {
+      text-align: center;
+      color: $color-gray-dark;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 5rem;
+      @include respond(mdScr) {
+        padding: 0 2.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+      }
+    }
+  }
+  &__block {
+    @include flexbox;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include respond(ipad-pro) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &--box {
+      @include corner($color-border, $color-white, 1.1rem);
+      width: calc(25% - 1.5rem);
+      position: relative;
+      height: 200px;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      .service-item {
+        @include flexCenter;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        a {
+          width: 100%;
+          height: 100%;
+          @include flexCenter;
+          flex-direction: column;
+        }
+      }
+      @include leftBottomRun;
+      @include respond(mdScr) {
+        width: calc(50% - 1rem);
+      }
+      @include respond(spScr) {
+        width: calc(100% / 2 - 0.75rem);
+        height: 12rem;
+        margin-bottom: 1.5rem;
+        @include corner($color-border, $color-white, 0.6rem);
+      }
+    }
+  }
+}
+
+.about {
+  display: flex;
+  @include respond(mdScr) {
+    flex-direction: column-reverse;
+  }
+  &__text {
+    width: 50%;
+    background-color: $color-primary;
+    padding: 4rem 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-left: 20rem;
+    &--main {
+      width: 100%;
+    }
+    @include respond(ipad-pro) {
+      padding-left: 5rem;
+    }
+    @include respond(mdScr) {
+      height: 21rem;
+      width: 100%;
+      padding: 4rem 0 5rem 0;
+      &--main {
+        padding: 0 1rem;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  &__image {
+    width: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include respond(mdScr) {
+      width: 100%;
+      height: 100%;
+      margin-bottom: -0.5rem;
+    }
+  }
+}
+.partners {
+  padding: 5rem 0 8rem 0;
+  @include respond(mdScr) {
+    padding: 2.5rem 0 1.5rem 0;
+  }
+
+  &__text {
+    &--title {
+      text-align: center;
+      color: $color-gray-dark;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    @include respond(mdScr) {
+      margin-bottom: 2rem;
+      &--title {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__box {
+    padding-top: 5rem;
+    @include flexbox;
+    justify-content: center;
+    @include respond(spScr) {
+      display: block;
+      padding: 1.5rem 0 1.5rem 0;
+      text-align: center;
+    }
+
+    &--item {
+      position: relative;
+      cursor: pointer;
+      width: 50rem;
+      transition: 0.75s;
+      padding: 0;
+      @include respond(mdScr) {
+        width: 100%;
+        margin-bottom: -5px;
+      }
+      img {
+        object-fit: cover;
+        position: relative;
+        width: 100%;
+      }
+
+      p {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 2.4rem;
+        color: $color-white;
+        .small {
+          font-size: 1.6rem;
+        }
+        @include respond(mdScr) {
+          font-size: 1.6rem;
+          .small {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .down {
+        position: absolute;
+        left: 50%;
+        bottom: 2rem;
+        transform: translateX(-50%);
+        @include respond(mdScr) {
+          bottom: 1rem;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        bottom: 1rem;
+        right: 1rem;
+      }
+      &:hover {
+        transform: scale(1.1);
+        z-index: 1;
+        @include respond(spScr) {
+          transform: scale(1.05);
+        }
+      }
+      &:hover::after {
+        border: 1px solid $color-white;
+      }
+    }
+  }
+}
+
+.recruit {
+  padding: 5rem 0;
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-primary, 0.7)
+    ),
+    url("../img/recruit1.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__text {
+    text-align: center;
+    font-size: 1.4rem;
+    color: $color-white;
+    margin-bottom: 2rem;
+  }
+  @include respond(spScr) {
+    padding: 3rem 0;
+    &__text {
+      font-size: 1.1rem;
+    }
+  }
+}

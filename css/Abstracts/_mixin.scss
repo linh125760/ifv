@@ -1,0 +1,119 @@
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flexCenter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin corner($color-border, $color-bg, $size) {
+  border: 1px solid $color-border;
+  background: linear-gradient(to right, $color-border 2px, transparent 2px) 0 0,
+    linear-gradient(to right, $color-border 2px, transparent 2px) 0 100%,
+    linear-gradient(to left, $color-border 2px, transparent 2px) 100% 0,
+    linear-gradient(to left, $color-border 2px, transparent 2px) 100% 100%,
+    linear-gradient(to bottom, $color-border 2px, transparent 2px) 0 0,
+    linear-gradient(to bottom, $color-border 2px, transparent 2px) 100% 0,
+    linear-gradient(to top, $color-border 2px, transparent 2px) 0 100%,
+    linear-gradient(to top, $color-border 2px, transparent 2px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: $size $size;
+  background-color: $color-bg;
+}
+@mixin respond($breakpoint) {
+  @if $breakpoint == spScr {
+    @media (max-width: 640px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mdScr {
+    @media (max-width: 910px) {
+      @content;
+    }
+  }
+  @if $breakpoint == ipad-pro {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin leftBottomRun {
+  &::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background-color: $color-primary;
+  }
+
+  &:hover::after {
+    width: 3px;
+    height: calc(100% + 1px);
+    transition: 0.25s linear;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0px;
+    height: 3px;
+    background-color: $color-primary;
+
+  }
+
+  &:hover::before {
+    height: 3px;
+    width: calc(100% + 1px);
+    transition: 0.45s linear 0.45s;
+
+  }
+}
+
+@mixin rightTopRun {
+  &::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    bottom: 0;
+    width: 3px;
+    height: 0;
+    background-color: $color-primary;
+  }
+
+  &:hover::after {
+    width: 3px;
+    height: calc(100% + 1px);
+    transition: 0.45s linear;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width: 0px;
+    height: 3.5px;
+    background-color: $color-primary;
+  }
+
+  &:hover::before {
+    height: 3.5px;
+    width: calc(100% + 1px);
+    transition: 0.45s linear 0.45s;
+  }
+}
